@@ -2,6 +2,7 @@
 Alastria Access Point is a proxy that filters and forwards client requests to Alastria Node internal services. It relies on Envoy front-proxy capabilities. [Envoy](https://www.envoyproxy.io/) is an open source edge and service proxy, designed for cloud-native applications.
 
 ## Getting Started
+This a work in progress. Access Point is primarily designed to limit exposure of Alastria Node services by filtering requests coming from outside of the network. Currently calls to **eth**, **net** and **web3** RPC API families are allowed through the proxy filter. Any other family is blocked, and its methods can only be called locally. 
 
 ### Prerequisites
 In order to run Alastria Access Point, Alastria Node must be started in local-only RPC mode. This is done by passing an optional argumental to the script that starts the node.
