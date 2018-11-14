@@ -1,0 +1,52 @@
+admin:
+  access_log_path: "/tmp/envoy.log"
+  address:
+    socket_address:
+      address: 0.0.0.0
+      port_value: 8001
+static_resources:
+  listeners:
+  - address:
+      socket_address:
+        address: 0.0.0.0
+        port_value: 22001
+    filter_chains:
+    - filters:
+      - name: envoy.http_connection_manager
+        config:
+          codec_type: auto
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: backend
+              domains:
+              - "*"
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: service1
+          http_filters:
+          - name: envoy.lua
+            config:
+              inline_code: |
+                function envoy_on_request(request_handle)
+                  body = request_handle:body()
+                  strbody = body:getBytes(0, body:length())
+                  if not string.match(strbody, "eth_") or string.match(strbody, "net_") or string.match(strbody, "web3_") then
+                    request_handle:respond({[":status"] = "403"},"Forbidden\n")
+                  end
+                end
+          - name: envoy.router
+            config: {}
+  clusters:
+  - name: service1
+    connect_timeout: 0.25s
+    type: LOGICAL_DNS
+    dns_lookup_family: V4_ONLY
+    lb_policy: ROUND_ROBIN
+    hosts:
+    - socket_address:
+        address: 127.0.0.1
+        port_value: 22000
