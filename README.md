@@ -24,4 +24,4 @@ Verify that the RPC API is listening on the local interface.
 
 ``$ ps -aux | grep geth``
 
-``geth --datadir /home/ubuntu/alastria/data --networkid 82584648528 --identity REG_XXXXX_TestNet_2_4_00 --permissioned --rpc --rpcaddr ``**``127.0.0.1``**`` --rpcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum,istanbul --rpcport 22000 --port 21000 --istanbul.requesttimeout 10000``
+``geth --datadir /home/ubuntu/alastria/data --networkid 82584648528 --identity REG_XXXXX_TestNet_2_4_00 --permissioned --rpc --rpcaddr ``**``127.0.0.1``**`` --rpcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum,istanbul --rpcport 22000 --port 21000 --istanbul.requesttimeout 10000 ...``
