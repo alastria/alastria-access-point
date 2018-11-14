@@ -9,3 +9,17 @@ In order to run Alastria Access Point, Alastria Node must be started in local-on
 ``./start.sh --local-rpc``
 
 Docker is used to deploy the Acces Point. Check how to [install Docker](https://docs.docker.com/install/) for your platform.
+
+### Installation
+To install directly from sources, clone this repository, build the Docker image and run the Access Point container.
+
+```
+git clone https://github.com/alastria/alastria-access-point.git
+cd ./alastria-access-point/
+docker build -t alastria-access-point .
+docker run -rm --network=host -d -p 22001:22001 alastria-access-point
+```
+
+Verify that the RPC API is listening on the local interface.
+
+``ps -aux | grep geth``
