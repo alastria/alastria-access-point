@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NODE_NAME="REG_BABELDOCKER_TestNet_2_4_00"
+NODE_NAME="REG_UNNAMED_TestNet_2_4_00"
 NODE_TYPE="general"
 echo "Write node name (REG/VAL_COMP-NAME_network_CPU_RAM_DISK): "
 read NODE_NAME
