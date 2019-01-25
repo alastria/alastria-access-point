@@ -1,14 +1,14 @@
 version: '3'
 services:
 
-  proxy:
+  envoy:
     build:
-      context: proxy
+      context: envoy
       dockerfile: Dockerfile
     depends_on:
       - node
     volumes:
-      - ./proxy/envoy-config.yaml:/etc/envoy.yaml
+      - ./envoy/envoy-config.yaml:/etc/envoy.yaml
     networks:
       - alastria
     expose:
@@ -22,7 +22,7 @@ services:
 
   node:
     build:
-      context: validator
+      context: node
       dockerfile: Dockerfile
     command: ["${NODE_TYPE}","${NODE_NAME}"]
     volumes:
