@@ -19,7 +19,7 @@ To install directly from sources, clone this repository, build the Docker image 
 $ git clone https://github.com/alastria/alastria-access-point.git
 $ cd ./alastria-access-point/
 $ docker build -t alastria-access-point .
-$ docker run --network=host -d -p 80:80 -p 443:443 alastria-access-point
+$ docker run --network=host -d alastria-access-point
 ```
 
 Verify that the RPC API is listening on the local interface.
