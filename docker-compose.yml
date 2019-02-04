@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nginx:
+    build: .
+    volumes:
+     - ./nginx/access-point.conf:/etc/nginx/conf.d/access-point.conf
+     - ./nginx/blacklist:/etc/nginx/blacklist
+    network_mode: "host"
+    ports:
+     - "80:80"
+     - "443:443"
