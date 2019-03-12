@@ -9,6 +9,6 @@ if [ -z "$1" ]; then
 fi
 
 if [ $1 = "nginx" ]; then
-	DOCKER_ID=$(docker ps -aqf "name=alastria-access-point")
+	DOCKER_ID=$(docker ps -aqf "name=access-point")
 	docker exec "$DOCKER_ID" nginx -s reload
 fi

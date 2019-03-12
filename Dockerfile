@@ -11,6 +11,10 @@ RUN apt-get update && \
 RUN rm -Rf /etc/nginx/sites-enabled/default
 RUN rm -Rf /etc/nginx/sites-available/default
 
+COPY ./nginx/access-point.conf /etc/nginx/conf.d/access-point.conf
+COPY ./nginx/blacklist /etc/nginx/blacklist
+COPY ./nginx/whitelist /etc/nginx/whitelist
+
 EXPOSE 80 443
 
 CMD ["nginx", "-g", "daemon off;"]
