@@ -12,7 +12,7 @@ if [ $1 = "nginx" ]; then
         DOCKER_ID=""
         DIRECTORY="../../config"
         if [ -d $DIRECTORY ]; then
-                DOCKER_ID==$(head -n 1 "$DIRECTORY"/NODE_NAME 2> /dev/null)
+                DOCKER_ID=$(head -n 1 "$DIRECTORY"/NODE_NAME 2> /dev/null)
         else
 	        DOCKER_ID=$(docker ps -aqf "name=Access_Point")
         fi
