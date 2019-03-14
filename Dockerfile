@@ -13,6 +13,6 @@ RUN rm -Rf /etc/nginx/sites-available/default
 
 EXPOSE 80 443
 
-VOLUME /etc/nginx
+VOLUME /etc/nginx/conf.d/
 
 CMD ["nginx", "-g", "daemon off;"]
