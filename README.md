@@ -18,6 +18,7 @@ In order to run Alastria Access Point, Alastria Node must be started in local-on
 
 First of all clone this repository
 ``$ git clone https://github.com/alastria/alastria-access-point.git``
+
 Then you will have two options to run the container
 
 ### Using Alastria's official docker image
