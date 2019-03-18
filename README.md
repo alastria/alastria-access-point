@@ -17,38 +17,39 @@ In order to run Alastria Access Point, Alastria Node must be started in local-on
 ## Installation
 
 First of all clone this repository
-``$ git clone https://github.com/alastria/alastria-access-point.git``
+
+``git clone https://github.com/alastria/alastria-access-point.git``
 
 Then you will have two options to run the container
 
 ### Using Alastria's official docker image
 ```
-$ cd ./alastria-access-point/
-$ docker run --name Alastria_Access_Point -v $(pwd)/nginx/conf.d:/etc/nginx/conf.d -it -d --net=host alastria/alastria-access-point
+cd ./alastria-access-point/
+docker run --name Alastria_Access_Point -v $(pwd)/nginx/conf.d:/etc/nginx/conf.d -it -d --net=host alastria/alastria-access-point
 ```
 
 ### Building your own image
 ```
-$ cd ./alastria-access-point/
-$ docker build -t alastria-access-point .
-$ docker run --name Alastria_Access_Point -v $(pwd)/nginx/conf.d:/etc/nginx/conf.d -it -d --net=host alastria-access-point
+cd ./alastria-access-point/
+docker build -t alastria-access-point .
+docker run --name Alastria_Access_Point -v $(pwd)/nginx/conf.d:/etc/nginx/conf.d -it -d --net=host alastria-access-point
 ```
 ## Tools
 
 ### Adding/Removing IP addresses to the Whitelist
 You can add or remove specific IP addresses by executing the ``allow-ip.sh`` script:
 ```
-$ ./allow-ip.sh PROXY [-r] IP_ADDRESS_0 [ IP_ADDRESS_1 [ IP_ADDRESS_N ] ]
+./allow-ip.sh PROXY [-r] IP_ADDRESS_0 [ IP_ADDRESS_1 [ IP_ADDRESS_N ] ]
 ```
 Basic usage example, by adding and then removing an IP address:
 ```
-$ ./allow-ip.sh nginx 1.2.3.4
-$ ./allow-ip.sh nginx -r 1.2.3.4
+./allow-ip.sh nginx 1.2.3.4
+./allow-ip.sh nginx -r 1.2.3.4
 ```
 
 ### Reloading proxy configuration
 If you made some changes to the proxy* configuration you would need to update it inside the container. You can execute the script:
 ```
-$ ./reload-config.sh PROXY
+./reload-config.sh PROXY
 ```
 \* Right now **nginx** is the only supported proxy. 
