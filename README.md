@@ -16,15 +16,21 @@ In order to run Alastria Access Point, Alastria Node must be started in local-on
 
 ## Installation
 
-### Using Alastria's official docker image
-``docker run --name Alastria_Access_Point -it -d --net=host alastria/alastria-access-point``
+First of all clone this repository
+``$ git clone https://github.com/alastria/alastria-access-point.git``
+Then you will have two options to run the container
 
-### Building directly from sources
+### Using Alastria's official docker image
 ```
-$ git clone https://github.com/alastria/alastria-access-point.git
+$ cd ./alastria-access-point/
+$ docker run --name Alastria_Access_Point -v $(pwd)/nginx/conf.d:/etc/nginx/conf.d -it -d --net=host alastria/alastria-access-point
+```
+
+### Building your own image
+```
 $ cd ./alastria-access-point/
 $ docker build -t alastria-access-point .
-$ docker run --name Alastria_Access_Point -it -d --net=host alastria-access-point
+$ docker run --name Alastria_Access_Point -v $(pwd)/nginx/conf.d:/etc/nginx/conf.d -it -d --net=host alastria-access-point
 ```
 ## Tools
 
