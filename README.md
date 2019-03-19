@@ -25,7 +25,7 @@ Then you will have two options to run the container
 ### Using Alastria's official docker image
 ```
 cd ./alastria-access-point/
-docker run --name Alastria_Access_Point -v $(pwd)/nginx/conf.d:/etc/nginx/conf.d -it -d --net=host alastria/alastria-access-point
+./run.sh
 ```
 
 ### Building your own image
