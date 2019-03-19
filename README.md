@@ -24,8 +24,7 @@ Then you will have two options to run the container
 
 ### Using Alastria's official docker image
 ```
-cd ./alastria-access-point/
-./run.sh
+./alastria-access-point/run.sh
 ```
 
 ### Building your own image
