@@ -19,7 +19,7 @@ if [ $1 = "nginx" ]; then
         if [ $2 = "-r" ]; then
                 for IP in "${@:3}"
                 do
-                        sed -i '/$IP/d' ./nginx/conf.d/whitelist
+                        sed -i '/'$IP'/d' ./nginx/conf.d/whitelist
                 done
         else
                 for IP in "${@:2}"
