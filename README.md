@@ -52,3 +52,15 @@ If you made some changes to the proxy* configuration you would need to update it
 ./reload-config.sh PROXY
 ```
 \* Right now **nginx** is the only supported proxy. 
+
+Example to try out jsonrpc via the proxy from a whitelisted IP address:
+
+    curl -X POST -k -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' http://your-node-fqdn-or-ip-address:80/rpc
+    
+The result should be something like
+
+    {"jsonrpc":"2.0","id":1,"result":"Geth/REG_YOURCOMPANY_Telsius_4_8_00/v1.8.18-stable(quorum-v2.2.3-0.Alastria_EthNetstats_IBFT)/linux-amd64/go1.9.5"}
+    
+    
+
+
