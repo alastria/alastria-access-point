@@ -45,6 +45,7 @@ Basic usage example, by adding and then removing an IP address:
 ./allow-ip.sh nginx 1.2.3.4
 ./allow-ip.sh nginx -r 1.2.3.4
 ```
+In case you need access from a website to the RPC interface, you have first to find out the website's IP address (or addresses) and then add it or them to the whitelist.
 
 ### Reloading proxy configuration
 If you made some changes to the proxy* configuration you would need to update it inside the container. You can execute the script:
